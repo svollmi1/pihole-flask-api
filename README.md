@@ -80,12 +80,6 @@ bash scripts/deploy.sh <host>
 
 The script will prompt for the API key and requires SSH access with `sudo` on the target host. It is idempotent — safe to re-run for updates.
 
-**Note for Windows users:** Run from Git Bash using the Windows OpenSSH binary to avoid SSH key conflicts:
-
-```powershell
-& "C:\Program Files\Git\bin\bash.exe" -c 'export PATH="/c/Windows/System32/OpenSSH:$PATH" && bash scripts/deploy.sh <host>'
-```
-
 ### What gets deployed
 
 | Path | Description |
