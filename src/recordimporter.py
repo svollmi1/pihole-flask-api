@@ -65,8 +65,8 @@ def add_a_record():
 
     entry = f"{ip} {domain}"
     if entry in hosts:
-        logger.error("Record %s already exists", entry)
-        return jsonify({"error": "Record already exists"}), 409
+        logger.debug("Record %s already exists, no-op", entry)
+        return jsonify({"message": "Record already exists"}), 200
 
     hosts.append(entry)
     try:
@@ -139,8 +139,8 @@ def add_cname_record():
 
     entry = f"{domain},{target}"
     if any(r.split(",")[0] == domain for r in cnames):
-        logger.error("CNAME record for %s already exists", domain)
-        return jsonify({"error": "Record already exists"}), 409
+        logger.debug("CNAME record for %s already exists, no-op", domain)
+        return jsonify({"message": "Record already exists"}), 200
 
     cnames.append(entry)
     try:
